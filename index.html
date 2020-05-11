@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="sidebar">
+      <div class="toggleBar">
+        <div class="toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <div class="menu">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Portfolio</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <section class="section1">
+      <img src="./images/bg.jpg" id="bg" />
+      <img src="./images/moon.png" id="moon" />
+      <img src="./images/mountain.png" id="mountain" />
+      <img src="./images/road.png" id="road" />
+      <h2 id="text">MOON LIGHT</h2>
+    </section>
+    <section class="section2">
+      <h1>
+        Cool Mouse Move Effects
+      </h1>
+      <div class="imgbox">
+        <img
+          src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+          alt=""
+        />
+      </div>
+      <div class="imgbox">
+        <img
+          src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+          alt=""
+        />
+      </div>
+      <div class="imgbox">
+        <img
+          src="https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+          alt=""
+        />
+      </div>
+      <div class="imgbox">
+        <img
+          src="https://images.pexels.com/photos/1845534/pexels-photo-1845534.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+          alt=""
+        />
+      </div>
+      <div class="imgbox">
+        <img
+          src="https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+          alt=""
+        />
+      </div>
+    </section>
+    <section class="section3">
+      <h1
+        style="
+          position: absolute;
+          width: 100%;
+          top: 10%;
+          text-align: center;
+          font-size: 3em;
+        "
+      >
+        Card Hover Effects
+      </h1>
+      <div class="container">
+        <div class="card">
+          <div class="face face1">
+            <div class="content">
+              <h2>Lorem ipsum dolor sit amet consectetur</h2>
+              <p>
+                adipisicing elit. Dicta cum quos asperiores deserunt voluptate
+                vel fuga odit, iure perspiciatis quod distinctio nesciunt
+              </p>
+            </div>
+          </div>
+          <div class="face face2">
+            <h2>01</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="face face1">
+            <div class="content">
+              <h2>Lorem ipsum dolor sit amet consectetur</h2>
+              <p>
+                adipisicing elit. Dicta cum quos asperiores deserunt voluptate
+                vel fuga odit, iure perspiciatis quod distinctio nesciunt
+              </p>
+            </div>
+          </div>
+          <div class="face face2">
+            <h2>02</h2>
+          </div>
+        </div>
+        <div class="card">
+          <div class="face face1">
+            <div class="content">
+              <h2>Lorem ipsum dolor sit amet consectetur</h2>
+              <p>
+                adipisicing elit. Dicta cum quos asperiores deserunt voluptate
+                vel fuga odit, iure perspiciatis quod distinctio nesciunt
+              </p>
+            </div>
+          </div>
+          <div class="face face2">
+            <h2>03</h2>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"
+    integrity="sha256-3arngJBQR3FTyeRtL3muAGFaGcL8iHsubYOqq48mBLw="
+    crossorigin="anonymous"
+  ></script>
+  <script type="text/javascript">
+    let bg = document.getElementById("bg");
+    let moon = document.getElementById("moon");
+    let mountain = document.getElementById("mountain");
+    let road = document.getElementById("road");
+    let text = document.getElementById("text");
+
+    window.addEventListener("scroll", function () {
+      var value = window.scrollY;
+
+      bg.style.top = value * 0.5 + "px";
+      moon.style.left = -value * 0.5 + "px";
+      mountain.style.top = -value * 0.05 + "px";
+      road.style.top = value * 0.15 + "px";
+      text.style.top = value * 1 + "px";
+    });
+
+    document.addEventListener("mousemove", (e) => {
+      gsap.to(".imgbox", {
+        x: e.clientX,
+        y: e.clientY,
+
+        stagger: -0.2,
+      });
+    });
+
+    $(document).ready(function () {
+      $(".toggle").click(function () {
+        $(".sidebar").toggleClass("active");
+        $(".toggle").toggleClass("close");
+      });
+    });
+  </script>
+</html>
